@@ -1,0 +1,43 @@
+{
+  "name": "file-ts",
+  "version": "0.7.15",
+  "description": "A filesystem in your browser",
+  "author": "James P. <jp@drvortex.dev> (https://drvortex.dev)",
+  "contributors": [
+    "John Vilk <jvilk@cs.umass.edu>",
+    "Dan Lynch <pyramation@gmail.com>"
+  ],
+  "main": "index.js",
+  "module": "esm/index.js",
+  "types": "index.d.ts",
+  "homepage": "https://github.com/pyramation/file-ts",
+  "license": "SEE LICENSE IN LICENSE",
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pyramation/file-ts"
+  },
+  "bugs": {
+    "url": "https://github.com/pyramation/file-ts/issues"
+  },
+  "dependencies": {
+    "@types/node": "^20.12.5",
+    "@types/readable-stream": "^4.0.10",
+    "buffer": "^6.0.3",
+    "minimatch": "^9.0.3",
+    "readable-stream": "^4.5.2"
+  },
+  "scripts": {
+    "copy": "copyfiles -f ../../LICENSE README.md package.json dist",
+    "clean": "rimraf dist/**",
+    "prepare": "npm run build",
+    "build": "npm run clean; tsc; tsc -p tsconfig.esm.json; npm run copy",
+    "lint": "eslint . --fix",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "keywords": []
+}
